@@ -7,6 +7,10 @@ Real-time monitoring and research of the system status.
 - [Subject EN](./subject_en.md)
 - [Subject RU](./subject_ru.md)
 
+## Solution
+
+- [Exercise 01](./01/)
+
 ## Materials
 
 - [Combined log format](./materials/Combined_Log_Format.md)
