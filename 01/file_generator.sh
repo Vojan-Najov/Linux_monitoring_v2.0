@@ -9,7 +9,7 @@ function disk_is_full() {
 	fi
 }
 
-function generate_files() {
+function file_generator() {
 
 	directory=$1
 	subdirs_count=$2
@@ -40,11 +40,11 @@ function generate_files() {
 		mkdir -p "$directory""$subdir_name"_"$now"
 	
 		printf "%s " $(realpath "$directory""$subdir_name"_"$now""/") >>$logfile
-		printf "%s\n" "$( date +"%d/%m/%y %T" )" >>$logfile
+		printf "%s\n" "$( date +"%S/%M/%H/%d/%m/%Y" )" >>$logfile
 
 		filename=$file_letters
 
-		while [ ${#file_letters} -lt 4 ]; do
+		while [ ${#filename} -lt 4 ]; do
 			first_character=${filename:0:1}
 			replace_characters=$first_character$first_character
 			filename=${filename/$first_character/$replace_characters}
@@ -59,13 +59,11 @@ function generate_files() {
 
 			fullname="$directory""$subdir_name"_"$now""/""$filename"_"$now"."$ext"
 
-			fallocate -l $file_size $fullname
+			fallocate -l $file_size "$fullname"
 
 			printf "%s " $(realpath "$fullname") >>$logfile
-			printf "%s " "$( date +"%d/%m/%y %T" )" >>$logfile
+			printf "%s " "$( date +"%S/%M/%H/%d/%m/%Y" )" >>$logfile
 			printf "%s\n" "$file_size""B" >>$logfile
-
-			
 			
 			character=${file_letters:$file_letters_idx:1}
 			replace_characters=$character$character
@@ -78,6 +76,6 @@ function generate_files() {
 		subdir_name=${subdir_name/$character/$replace_characters}
 		(( dir_letters_idx = ($dir_letters_idx + 1) % ${#dir_letters} ))
 		(( subdirs_count = $subdirs_count - 1 ))
-
 	done
 }
+

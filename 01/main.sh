@@ -6,14 +6,14 @@ source "$(dirname $0)"/is_natural_number.sh
 source "$(dirname $0)"/file_generator.sh
 
 if [ $# -ne 6 ]; then
-  echo "Error: 6 arguments expected."
-	echo "$(print_usage)"
+	echo "Error: 6 arguments are expected."
+	echo "$( print_usage )"
 	exit 1
 fi
 
 directory="$1"
 if [ ${directory: -1} != "/" ]; then
-	directory="$directory/"
+	directory="$directory""/"
 fi
 if [ ! -d "$directory" ]; then
   echo "Error: the directory $1 does not exist."
@@ -46,22 +46,20 @@ if ! is_natural_number "$files_count"; then
 	exit 1;
 fi
 
-IFS=$'.' read -ra tmp_array <<< "$5"
-if [ ${#tmp_array[@]} -ne 2 ] || [ ${5: -1} == '.' ]; then
+file_letters=$( cut -d'.' -f1 <<< "$5" )
+ext_letters=$( cut -d'.' -f2 <<< "$5" )
+if ! [[ $5 =~ ^[a-zA-Z]+\.[a-zA-Z]+$ ]]; then
   echo "Error: [a-zA-Z].[a-zA-z] are expected for file's name."
 	exit 1
 fi
-
-file_letters=${tmp_array[0]}
-ext_letters=${tmp_array[1]}
 if ! (is_alphabet "$file_letters" && is_alphabet "$ext_letters"); then
   echo "Error: [a-zA-Z].[a-zA-z] are expected for file's name."
 	exit 1
 fi
 if [ ${#file_letters} -gt 7 ] || [ ${#ext_letters} -gt 3 ]; then
 	echo "Error: to the left of the dot, no more than 7 letters are "
-  echo "expected for the file name, to the right of the dot, no more "
-  echo "than 3 letters are expected for the extension."
+  echo "       expected for the filename, to the right of the dot,"
+  echo "       no more than 3 letters are expected for the extension."
   exit 1;
 fi
 
@@ -78,8 +76,9 @@ if ! is_natural_number "$file_size" || [ $file_size -gt 100 ]; then
 fi
 (( file_size = $file_size * 1000 ))
 
-logfile="$(dirname $0)"/file_generator.log
+timestamp=$( date  "+%Y%m%d%H%M%S" )
+logfile="$( dirname $0 )"/file_generator_"$timestamp".log
 
-$(generate_files "$directory" $subdirs_count $dir_letters $files_count \
+$(file_generator "$directory" $subdirs_count $dir_letters $files_count \
                   $file_letters $ext_letters $file_size $logfile)
 
