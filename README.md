@@ -10,6 +10,7 @@ Real-time monitoring and research of the system status.
 ## Solution
 
 - [Exercise 01](./01/)
+- [Exercise 02](./02/)
 
 ## Materials
 
