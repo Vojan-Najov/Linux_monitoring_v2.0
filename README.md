@@ -9,8 +9,9 @@ Real-time monitoring and research of the system status.
 
 ## Solution
 
-- [Exercise 01](./01/)
-- [Exercise 02](./02/)
+- [Part 1. File generator](./01/)
+- [Part 2. File system clogging](./02/)
+- [Part 3. Cleaning the file system](./03/)
 
 ## Materials
 
