@@ -4,8 +4,8 @@ Real-time monitoring and research of the system status.
 
 ## Subject
 
-- [Subject EN](./subject_en.md)
-- [Subject RU](./subject_ru.md)
+- [Subject EN](./docs/subject_en.md)
+- [Subject RU](./docs/subject_ru.md)
 
 ## Solution
 
@@ -13,7 +13,7 @@ Real-time monitoring and research of the system status.
 
 ## Materials
 
-- [Combined log format](./materials/Combined_Log_Format.md)
-- [Sed](./materials/part06_sed.md)
-- [Awk](./materials/part07_awk.md)
+- [Combined log format](./docs/materials/Combined_Log_Format.md)
+- [Sed](./docs/materials/part06_sed.md)
+- [Awk](./docs/materials/part07_awk.md)
 
