@@ -1,4 +1,4 @@
-#Bash scripts, part 6: sed and text editing
+# Bash scripts, part 6: sed and text editing
 
 ### A short digression – a pipe in bash.
 
