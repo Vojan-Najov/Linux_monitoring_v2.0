@@ -17,12 +17,8 @@ if [ $1 -eq 1 ]; then
 	echo -n "Enter the pathname of the log file: "
 	read logfile
 
-	if [ ! -r "$logfile" ]; then
-		echo "Error: read permission denied."
-		exit 1
-	fi
-	if [ -d "$logfile" ]; then
-		echo "Error: file is directory."
+	if [ ! -r "$logfile" ] || [ ! -f "$logfile" ]; then
+		echo "Error: read permission denied or file is not a regular file."
 		exit 1
 	fi
 
