@@ -10,7 +10,6 @@ function disk_is_full() {
 }
 
 function file_generator() {
-
 	directory=$1
 	subdirs_count=$2
 	dir_letters=$3
@@ -32,7 +31,6 @@ function file_generator() {
 
 	dir_letters_idx=0
 	while [ $subdirs_count -gt 0 ]; do
-
 		if disk_is_full; then
 			break
 		fi
