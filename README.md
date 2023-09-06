@@ -12,6 +12,7 @@ Real-time monitoring and research of the system status.
 - [Part 1. File generator](./01/)
 - [Part 2. File system clogging](./02/)
 - [Part 3. Cleaning the file system](./03/)
+- [Part 4. Log generator](./04/)
 
 ## Materials
 
