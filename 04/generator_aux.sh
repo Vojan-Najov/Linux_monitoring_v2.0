@@ -56,10 +56,6 @@ function gen_agent() {
 	echo '"'"${agent[$index]}"'"'
 }
 
-
-#echo $( gen_ip ) $( gen_client_rfc_id ) $( gen_username ) \
-#     $( gen_date $data $time_step 40 )
-
 function gen_logfile() {
 	local entry_count=$1
 	local curdate=$2
