@@ -58,9 +58,8 @@ TIMEFORMAT="Script execution time (in seconds) = %1R"
 {
 	time {
 		for dir in $( find / -type d 2>/dev/null ); do
-			#(( SUBDIRS_COUNT = $RANDOM % 100 ))
-			SUBDIRS_COUNT=3 
-			(( FILES_COUNT = $RANDOM % 100 )) 
+			SUBDIRS_COUNT=(( $RANDOM % 100 ))
+			FILES_COUNT=(( $RANDOM % 100 )) 
 
 			if [[ "$dir" =~ s?bin ]]; then
 				continue
