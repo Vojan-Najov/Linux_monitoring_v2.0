@@ -43,6 +43,10 @@ function gen_status() {
 	echo ${status[$index]}
 }
 
+function gen_number_of_bytes() {
+	echo $(( $RANDOM % 2048 ))
+}
+
 function gen_url() {
 	local url=( "https://www.google.com/" "https://yandex.com/" "https://duckduckgo.com/" )
 	local index=$(( $RANDOM % 3 ))
@@ -71,6 +75,7 @@ function gen_logfile() {
 		echo -n "$( gen_timestamp $curdate $time_step $i )" "" >>"$logfile"
 		echo -n "$( gen_request )" "" >>"$logfile"
 		echo -n "$( gen_status )" "" >>"$logfile"
+		echo -n "$( gen_number_of_bytes )" "" >>"$logfile"
 		echo -n "$( gen_url )" "" >>"$logfile"
 		echo "$( gen_agent )" >>"$logfile"
 	done	
