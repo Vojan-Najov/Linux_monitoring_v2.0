@@ -6,6 +6,7 @@ BEGIN {
 {
 	ips[NR] = $1;
 	codes[NR] = $6;
+	lines[NR] = $0;
 }
 END {
 	for (i = 1; i <= NR; ++i) {
@@ -20,7 +21,8 @@ END {
 			}
 		}
 		if (is_unique == 1) {
-			print ips[i] " " codes[i];
+			# print ips[i] " " codes[i];
+			print lines[i]
 		}
 	}
 }

@@ -12,6 +12,9 @@ if [ $# -ne 1 ] || ! [[ $1 =~ ^[1-4]$ ]]; then
 fi
 
 while read logfile; do
+	if [ "X$logfile" = "Xq" ]; then
+		exit
+	fi
 	if [ ! -f "$logfile" ]; then
 		echo "File '$logfile' not exist." 1>&2
 		continue
