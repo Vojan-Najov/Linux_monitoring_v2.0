@@ -2,12 +2,19 @@
 source "$(dirname $0)""/generator_aux.sh"
 
 for i in {1..5}; do
-	DATE=$( gen_random_date )
-	(( ENTRY_COUNT = 100 + ($RANDOM % 900) ))
-	LOGFILE="nginx_combined_format_""$( date "+%Y%m%d%H%M%S" )"".log"
-	gen_logfile $ENTRY_COUNT $DATE $LOGFILE
-	sleep 1
+  DATE=$( gen_random_date )
+  (( ENTRY_COUNT = 100 + ($RANDOM % 900) ))
+  #LOGFILE="nginx_combined_format_""$( date "+%Y%m%d%H%M%S" )"".log"
+  LOGFILE="nginx_combined_format_""$DATE"".log"
+  gen_logfile $ENTRY_COUNT $DATE $LOGFILE
 done
+
+
+# 1 Информационные 100 - 199
+# 2 Успешные 200 - 299
+# 3 Перенаправления 300 - 399
+# 4 Клиентские ошибки 400 - 499
+# 5 Серверные ошибки 500 - 599
 
 # 200 OK
 #   Standard response for successful HTTP requests. The actual response will
