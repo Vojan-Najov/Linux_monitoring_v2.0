@@ -13,6 +13,11 @@ Real-time monitoring and research of the system status.
 - [Part 2. File system clogging](./02/)
 - [Part 3. Cleaning the file system](./03/)
 - [Part 4. Log generator](./04/)
+- [Part 5. Monitoring](./05/)
+- [Part 6. GoAccess](./06/)
+- [Part 7. Prometheus and Grafana](./07/)
+- [Part 8. A ready-made dashboard](./08/)
+- [Part 9. Bonus. Your own node_exporter](./09/)
 
 ## Materials
 
